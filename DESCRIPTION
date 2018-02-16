@@ -1,7 +1,7 @@
 Package: measures
 Title: Provides performance measures
 Version: 0.1
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
+Authors@R: person("Philipp", "Probst", email = "philipp_probst@gmx.de", role = c("aut", "cre"))
 Description: Package that provides the biggest amount of statistical measures in the whole R world. Includes measures of regression, (multiclass) classification, clustering, survival and multilabel classification. The measures come mainly from the 'mlr' package. 
 Depends: R (>= 3.3.3)
 License: BSD_2_clause
