@@ -493,11 +493,11 @@ AUC = function(probabilities, truth, negative, positive) {
     stop("truth vector must have at least two classes")
   }
   #Use fast ranking function from data.table for larger vectors
-  if (length(i) > 5000L) {
-    r = frankv(probabilities)
-  } else {
+  #if (length(i) > 5000L) {
+  #   r = frankv(probabilities)
+  #} else {
     r = rank(probabilities)
-  }
+  #}
   n.pos = as.numeric(sum(i))
   n.neg = length(i) - n.pos
   (sum(r[i]) - n.pos * (n.pos + 1) / 2) / (n.pos * n.neg)
