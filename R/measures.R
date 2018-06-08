@@ -123,13 +123,12 @@ EXPVAR = function(truth, response) {
 #' @param p [numeric] number of predictors
 #' @export 
 ARSQ = function(truth, response, n, p) {
-  n = length(pred$data$truth)
-  p = length(model$features)
+  n = length(truth)
   if (n == p + 1){
     warning("Adjusted R-squared is undefined if the number observations is equal to the number of independent variables plus one.")
     return(NA_real_)
   }
-  1 - (1 - RSQ(pred$data$truth, pred$data$response)) * (p / (n - p - 1L))
+  1 - (1 - RSQ(truth, response)) * (p / (n - p - 1L))
 }
 
 #' Root relative squared error
@@ -217,6 +216,8 @@ RMSLE = function(truth, response) {
 #' 
 #' @param truth [numeric] vector of true values 
 #' @param response [numeric] vector of predicted values
+#' @importFrom stats as.formula cor median model.matrix
+#' @importFrom utils combn tail
 #' @export 
 KendallTau = function(truth, response) {
   cor(truth, response, use = "na.or.complete", method = "kendall")
@@ -269,7 +270,7 @@ ACC = function(truth, response) {
 #' @export
 BER = function(truth, response) {
   # special case for predictions from FailureModel
-  if (anyMissing(response))
+  if (anyNA(response))
     return(NA_real_)
   mean(diag(1 - (table(truth, response) / table(truth, truth))))
 }
@@ -298,7 +299,7 @@ multiclass.AUNU = function(probabilities, truth) {
 #' taking into account the prior probability of each class. 
 #' See Ferri et al.: https://www.math.ucdavis.edu/~saito/data/roc/ferri-class-perf-metrics.pdf.
 #' 
-#' @param probabilities 
+#' @param probabilities [numeric] vector of predicted probabilities 
 #' @param truth vector of true values 
 #' @export
 multiclass.AUNP = function(probabilities, truth) {
@@ -667,7 +668,7 @@ PPV = function(truth, response, positive, probabilities = NULL) {
 EdgeCase = function(truth, positive, prob) {
   if (!is.null(prob)) {
     rs = sort(prob, index.return = TRUE)
-    erst = ifelse(truth[getLast(rs$ix)] == positive, 1, 0)
+    erst = ifelse(truth[tail(rs$ix, 1)] == positive, 1, 0)
   } else {
     erst = NA
   }

@@ -7,7 +7,7 @@
 multiclass.AUNP(probabilities, truth)
 }
 \arguments{
-\item{probabilities}{}
+\item{probabilities}{[numeric] vector of predicted probabilities}
 
 \item{truth}{vector of true values}
 }

@@ -5,7 +5,7 @@ getRowEls = function(mat, inds) {
     inds = as.character(inds)
   if (is.character(inds))
     inds = match(inds, colnames(mat))
-  inds = cbind(seq_row(mat), inds)
+  inds = cbind(seq_len(nrow(mat)), inds)
   mat[inds]
 }
 
@@ -13,11 +13,11 @@ createDummyFeatures = function(obj, method = "1-of-n") {
   dcol = as.data.frame(obj)
   colname = colnames(dcol)
   if (method == "1-of-n") {
-    form = stri_paste("~", colname, "-1")
+    form = paste("~", colname, "-1")
     res = model.matrix(as.formula(form), data = dcol)
     colnames(res) = levels(as.factor(obj))
   } else {
-    form = stri_paste("~", colname, "-1")
+    form = paste("~", colname, "-1")
     res = model.matrix(as.formula(form), data = dcol)[, -1, drop = FALSE]
     colnames(res) = tail(levels(as.factor(obj)), -1)
   }
