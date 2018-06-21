@@ -10,3 +10,7 @@ It is based on measures of [mlr](https://github.com/mlr-org/mlr).
 The development version
 
     devtools::install_github("mlr-org/measures")
+    
+The available measures can be looked up by
+
+    lsf.str("package:measures")
