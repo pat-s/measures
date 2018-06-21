@@ -3,11 +3,11 @@ Title: Provides performance measures
 Version: 0.1
 Authors@R: person("Philipp", "Probst", email = "philipp_probst@gmx.de", role = c("aut", "cre"))
 Description: Package that provides the biggest amount of statistical measures in the whole R world. Includes measures of regression, (multiclass) classification, clustering, survival and multilabel classification. The measures come mainly from the 'mlr' package. 
-Depends: R (>= 3.3.3),
+Depends: R (>= 3.0),
          stats
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
-Suggests:
-    testthat
+Suggests: testthat,
+          assertthat
