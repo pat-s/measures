@@ -9,7 +9,6 @@
 #' listAllMeasures()
 listAllMeasures = function() {
   data("measureList", package = "measures")
-  return(tab)
 }
 
 
