@@ -94,3 +94,7 @@ test_that("multilabel classification measures provide an output", {
   expect_true(is.numeric(MultilabelPPV(truth, response)))
   expect_true(is.numeric(MultilabelTPR(truth, response)))
 })
+
+test_that("listing measures", {
+  expect_true(is.data.frame(listAllMeasures()))
+})
