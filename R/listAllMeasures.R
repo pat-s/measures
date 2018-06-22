@@ -31,4 +31,4 @@ listAllMeasures = function() {
 # save(measureList, file = "./data/measureList.RData")
 #
 # library(knitr)
-# kable(measureList)
+# kable(listAllMeasures())
