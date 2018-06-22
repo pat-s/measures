@@ -9,8 +9,8 @@
 #' listAllMeasures()
 listAllMeasures = function() {
   data("measureList", package = "measures")
+  return(measureList)
 }
-
 
 # reg = c("SSE", "MSE", "RMSE", "MEDSE", "SAE", "MAE", "MEDAE", "RSQ", "EXPVAR", "ARSQ", "RRSE", "RAE", "MAPE", "MSLE", "RMSLE", "KendallTau", "SpearmanRho")
 # bin = c("AUC", "Brier", "BrierScaled", "BAC", "TP", "TN", "FP", "FN", "TPR", "TNR", "FPR", "FNR", "PPV", "NPV", "FDR", "MCC", "F1", "GMEAN", "GPR")
