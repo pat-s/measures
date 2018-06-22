@@ -8,7 +8,6 @@
 #' @examples
 #' listAllMeasures()
 listAllMeasures = function() {
-  data("measureList", package = "measures")
   return(measureList)
 }
 
@@ -27,7 +26,8 @@ listAllMeasures = function() {
 # colnames(measureList) = c("function_name", "task")
 # measureList = merge(tab, descr, by = "function_name", all.x = TRUE, sort = FALSE)
 # measureList = measureList[, c(1, 3, 2)]
-# save(measureList, file = "./data/measureList.RData")
+# colnames(measureList)[3] = "description"
+# devtools::use_data(measureList, internal = TRUE)
 #
 # library(knitr)
 # kable(listAllMeasures())
