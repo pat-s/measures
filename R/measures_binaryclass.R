@@ -10,6 +10,15 @@
 #' @param truth vector of true values
 #' @param negative negative class
 #' @param positive positive class 
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' positive = 1
+#' negative = 0
+#' AUC(probabilities, truth, negative, positive)
 #' @export
 AUC = function(probabilities, truth, negative, positive) {
   if (is.factor(truth)) {
@@ -41,6 +50,15 @@ AUC = function(probabilities, truth, negative, positive) {
 #' @param truth vector of true values
 #' @param negative negative class
 #' @param positive positive class 
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' positive = 1
+#' negative = 0
+#' Brier(probabilities, truth, negative, positive)
 #' @export
 Brier = function(probabilities, truth, negative, positive) {
   y = as.numeric(truth == positive)
@@ -55,6 +73,15 @@ Brier = function(probabilities, truth, negative, positive) {
 #' @param truth vector of true values
 #' @param negative negative class
 #' @param positive positive class 
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' positive = 1
+#' negative = 0
+#' BrierScaled(probabilities, truth, negative, positive)
 #' @export
 BrierScaled = function(probabilities, truth, negative, positive) {
   y = as.numeric(truth == positive)
@@ -72,6 +99,15 @@ BrierScaled = function(probabilities, truth, negative, positive) {
 #' @param response vector of predicted values
 #' @param negative negative class
 #' @param positive positive class 
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' positive = 1
+#' negative = 0
+#' BAC(truth, response, negative, positive)
 #' @export
 BAC = function(truth, response, negative, positive) {
   mean(c(
@@ -87,6 +123,14 @@ BAC = function(truth, response, negative, positive) {
 #' @param truth vector of true values
 #' @param response vector of predicted values
 #' @param positive positive class 
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' positive = 1
+#' TP(truth, response, positive)
 #' @export TP 
 TP = function(truth, response, positive) {
   sum(truth == response & response == positive)
@@ -99,6 +143,14 @@ TP = function(truth, response, positive) {
 #' @param truth vector of true values
 #' @param response vector of predicted values
 #' @param negative negative class
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' negative = 0
+#' TN(truth, response, negative)
 #' @export
 TN = function(truth, response, negative) {
   sum(truth == response & response == negative)
@@ -111,6 +163,14 @@ TN = function(truth, response, negative) {
 #' @param truth vector of true values
 #' @param response vector of predicted values
 #' @param positive positive class 
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' positive = 1
+#' FP(truth, response, positive)
 #' @export 
 FP = function(truth, response, positive) {
   sum(truth != response & response == positive)
@@ -123,6 +183,14 @@ FP = function(truth, response, positive) {
 #' @param truth vector of true values
 #' @param response vector of predicted values
 #' @param negative negative class
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' negative = 0
+#' FN(truth, response, negative)
 #' @export 
 FN = function(truth, response, negative) {
   sum(truth != response & response == negative)
@@ -135,6 +203,14 @@ FN = function(truth, response, negative) {
 #' @param truth vector of true values
 #' @param response vector of predicted values
 #' @param positive positive class 
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' positive = 1
+#' TPR(truth, response, positive)
 #' @export 
 TPR = function(truth, response, positive) {
   TP(truth, response, positive) / sum(truth == positive)
@@ -147,6 +223,14 @@ TPR = function(truth, response, positive) {
 #' @param truth vector of true values
 #' @param response vector of predicted values
 #' @param negative negative class
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' negative = 0
+#' TNR(truth, response, negative)
 #' @export 
 TNR = function(truth, response, negative) {
   TN(truth, response, negative) / sum(truth == negative)
@@ -160,6 +244,15 @@ TNR = function(truth, response, negative) {
 #' @param response vector of predicted values
 #' @param negative negative class
 #' @param positive positive class 
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' positive = 1
+#' negative = 0
+#' FPR(truth, response, negative, positive)
 #' @export 
 FPR = function(truth, response, negative, positive) {
   FP(truth, response, positive) / sum(truth == negative)
@@ -173,6 +266,15 @@ FPR = function(truth, response, negative, positive) {
 #' @param response vector of predicted values
 #' @param negative negative class
 #' @param positive positive class 
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' positive = 1
+#' negative = 0
+#' FNR(truth, response, negative, positive)
 #' @export 
 FNR = function(truth, response, negative, positive) {
   FN(truth, response, negative) / sum(truth == positive)
@@ -187,6 +289,14 @@ FNR = function(truth, response, negative, positive) {
 #' @param response vector of predicted values
 #' @param positive positive class 
 #' @param probabilities [numeric] vector of predicted probabilities 
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' positive = 1
+#' PPV(truth, response, positive, probabilities = NULL)
 #' @export 
 PPV = function(truth, response, positive, probabilities = NULL) {
   denominator = sum(response == positive)
@@ -209,6 +319,14 @@ EdgeCase = function(truth, positive, prob) {
 #' @param truth vector of true values
 #' @param response vector of predicted values
 #' @param negative negative class
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' negative = 0
+#' NPV(truth, response, negative)
 #' @export  
 NPV = function(truth, response, negative) {
   TN(truth, response, negative) / sum(response == negative)
@@ -221,6 +339,14 @@ NPV = function(truth, response, negative) {
 #' @param truth vector of true values
 #' @param response vector of predicted values
 #' @param positive positive class 
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' positive = 1
+#' FDR(truth, response, positive)
 #' @export 
 FDR = function(truth, response, positive) {
   FP(truth, response, positive) / sum(response == positive)
@@ -234,6 +360,15 @@ FDR = function(truth, response, positive) {
 #' @param response vector of predicted values
 #' @param negative negative class
 #' @param positive positive class 
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' positive = 1
+#' negative = 0
+#' MCC(truth, response, negative, positive)
 #' @export 
 MCC = function(truth, response, negative, positive) {
   tn = as.numeric(TN(truth, response, negative))
@@ -253,6 +388,14 @@ MCC = function(truth, response, negative, positive) {
 #' @param truth vector of true values
 #' @param response vector of predicted values
 #' @param positive positive class 
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' positive = 1
+#' F1(truth, response, positive)
 #' @export 
 F1 = function(truth, response, positive) {
   2 * TP(truth, response, positive) /
@@ -267,6 +410,15 @@ F1 = function(truth, response, positive) {
 #' @param response vector of predicted values
 #' @param negative negative class
 #' @param positive positive class 
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' positive = 1
+#' negative = 0
+#' GMEAN(truth, response, negative, positive)
 #' @export 
 #' @references
 #' He, H. & Garcia, E. A. (2009)
@@ -283,6 +435,14 @@ GMEAN = function(truth, response, negative, positive) {
 #' @param truth vector of true values
 #' @param response vector of predicted values
 #' @param positive positive class 
+#' @examples
+#' n = 20
+#' set.seed(125)
+#' truth = as.factor(sample(c(1,0), n, replace = TRUE))
+#' probabilities = runif(n)
+#' response = as.factor(as.numeric(probabilities > 0.5))
+#' positive = 1
+#' GPR(truth, response, positive)
 #' @export 
 GPR = function(truth, response, positive) {
   sqrt(PPV(truth, response, positive) * TPR(truth, response, positive))

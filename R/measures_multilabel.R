@@ -9,6 +9,12 @@
 #' 
 #' @param truth matrix of true values
 #' @param response matrix of predicted values
+#' @examples
+#' n = 20
+#' set.seed(122)
+#' truth = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+#' response = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+#' MultilabelHamloss(truth, response)
 #' @export 
 MultilabelHamloss = function(truth, response) {
   mean(truth != response)
@@ -21,6 +27,12 @@ MultilabelHamloss = function(truth, response) {
 #' 
 #' @param truth matrix of true values
 #' @param response matrix of predicted values
+#' @examples
+#' n = 20
+#' set.seed(122)
+#' truth = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+#' response = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+#' MultilabelSubset01(truth, response)
 #' @export MultilabelSubset01 
 MultilabelSubset01 = function(truth, response) {
   mean(!apply(truth == response, 1, all))
@@ -34,6 +46,11 @@ MultilabelSubset01 = function(truth, response) {
 #' 
 #' @param truth matrix of true values
 #' @param response matrix of predicted values
+#' n = 20
+#' set.seed(122)
+#' truth = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+#' response = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+#' MultilabelF1(truth, response)
 #' @export 
 MultilabelF1 = function(truth, response) {
   numerator = 2 * rowSums(truth & response)
@@ -49,6 +66,11 @@ MultilabelF1 = function(truth, response) {
 #' 
 #' @param truth matrix of true values
 #' @param response matrix of predicted values
+#' n = 20
+#' set.seed(122)
+#' truth = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+#' response = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+#' MultilabelACC(truth, response)
 #' @export 
 MultilabelACC = function(truth, response) {
   numerator = rowSums(truth & response)
@@ -64,6 +86,11 @@ MultilabelACC = function(truth, response) {
 #' 
 #' @param truth matrix of true values
 #' @param response matrix of predicted values
+#' n = 20
+#' set.seed(122)
+#' truth = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+#' response = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+#' MultilabelPPV(truth, response)
 #' @export 
 MultilabelPPV = function(truth, response) {
   numerator = rowSums(truth & response)
@@ -79,6 +106,11 @@ MultilabelPPV = function(truth, response) {
 #' 
 #' @param truth matrix of true values
 #' @param response matrix of predicted values
+#' n = 20
+#' set.seed(122)
+#' truth = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+#' response = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+#' MultilabelTPR(truth, response)
 #' @export 
 MultilabelTPR = function(truth, response) {
   numerator = rowSums(truth & response)

@@ -15,3 +15,10 @@ SpearmanRho(truth, response)
 Defined as: Spearman's rho correlation between truth and response. Only looks at the order.
 See Rosset et al.: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.95.1398&rep=rep1&type=pdf.
 }
+\examples{
+n = 20
+set.seed(123)
+truth = rnorm(n)
+response = rnorm(n)
+SpearmanRho(truth, response)
+}

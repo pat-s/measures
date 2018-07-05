@@ -14,3 +14,10 @@ RMSE(truth, response)
 \description{
 The RMSE is aggregated as sqrt(mean(rmse.vals.on.test.sets^2))
 }
+\examples{
+n = 20
+set.seed(123)
+truth = rnorm(n)
+response = rnorm(n)
+RMSE(truth, response)
+}

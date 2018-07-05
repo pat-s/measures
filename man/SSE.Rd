@@ -14,3 +14,10 @@ SSE(truth, response)
 \description{
 Defined as: sum((response - truth)^2)
 }
+\examples{
+n = 20
+set.seed(123)
+truth = rnorm(n)
+response = rnorm(n)
+SSE(truth, response)
+}

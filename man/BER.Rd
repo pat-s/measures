@@ -14,3 +14,10 @@ BER(truth, response)
 \description{
 Mean of misclassification error rates on all individual classes.
 }
+\examples{
+n = 20
+set.seed(122)
+truth = as.factor(sample(c(1,2,3), n, replace = TRUE))
+response = as.factor(sample(c(1,2,3), n, replace = TRUE))
+BER(truth, response)
+}

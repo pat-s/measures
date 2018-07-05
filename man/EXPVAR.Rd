@@ -14,3 +14,10 @@ EXPVAR(truth, response)
 \description{
 Similar to RSQ (R-squared). Defined as explained_sum_of_squares / total_sum_of_squares.
 }
+\examples{
+n = 20
+set.seed(123)
+truth = rnorm(n)
+response = rnorm(n)
+EXPVAR(truth, response)
+}

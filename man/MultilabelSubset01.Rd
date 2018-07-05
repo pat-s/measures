@@ -15,3 +15,10 @@ MultilabelSubset01(truth, response)
 Proportion of observations where the complete multilabel set (all 0-1-labels) is predicted incorrectly,
 following the definition by Charte and Charte: https://journal.r-project.org/archive/2015-2/charte-charte.pdf.
 }
+\examples{
+n = 20
+set.seed(122)
+truth = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+response = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+MultilabelSubset01(truth, response)
+}

@@ -14,3 +14,10 @@ MEDSE(truth, response)
 \description{
 Defined as: median((response - truth)^2).
 }
+\examples{
+n = 20
+set.seed(123)
+truth = rnorm(n)
+response = rnorm(n)
+MEDSE(truth, response)
+}

@@ -18,3 +18,13 @@ MCC(truth, response, negative, positive)
 \description{
 Defined as (tp * tn - fp * fn) / sqrt((tp + fp) * (tp + fn) * (tn + fp) * (tn + fn)), denominator set to 1 if 0.
 }
+\examples{
+n = 20
+set.seed(125)
+truth = as.factor(sample(c(1,0), n, replace = TRUE))
+probabilities = runif(n)
+response = as.factor(as.numeric(probabilities > 0.5))
+positive = 1
+negative = 0
+MCC(truth, response, negative, positive)
+}

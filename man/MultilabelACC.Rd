@@ -9,7 +9,12 @@ MultilabelACC(truth, response)
 \arguments{
 \item{truth}{matrix of true values}
 
-\item{response}{matrix of predicted values}
+\item{response}{matrix of predicted values
+n = 20
+set.seed(122)
+truth = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+response = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+MultilabelACC(truth, response)}
 }
 \description{
 Averaged proportion of correctly predicted labels with respect to the total number of labels for each instance,

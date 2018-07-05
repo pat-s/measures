@@ -18,3 +18,11 @@ ARSQ(truth, response, n, p)
 \description{
 Defined as: 1 - (1 - rsq) * (p / (n - p - 1L)). Adjusted R-squared is only defined for normal linear regression.
 }
+\examples{
+n = 20
+p = 5
+set.seed(123)
+truth = rnorm(n)
+response = rnorm(n)
+ARSQ(truth, response, n, p)
+}

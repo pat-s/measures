@@ -14,3 +14,10 @@ RAE(truth, response)
 \description{
 Defined as sum_of_absolute_errors / mean_absolute_deviation. Undefined for single instances and when every truth value is identical. In this case the output will be NA.
 }
+\examples{
+n = 20
+set.seed(123)
+truth = rnorm(n)
+response = rnorm(n)
+RAE(truth, response)
+}

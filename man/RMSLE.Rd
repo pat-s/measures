@@ -16,3 +16,10 @@ Definition taken from: https: / /www.kaggle.com / wiki / RootMeanSquaredLogarith
 This  is mostly used for count data, note that all predicted and actual target values
 must be greater or equal '-1' to compute the root mean squared logarithmic error.
 }
+\examples{
+n = 20
+set.seed(123)
+truth = abs(rnorm(n))
+response = abs(rnorm(n))
+RMSLE(truth, response)
+}

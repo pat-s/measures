@@ -16,3 +16,12 @@ Computes AUC of c(c - 1) binary classifiers (all possible pairwise combinations)
 while considering uniform distribution of the classes. 
 See Ferri et al.: https://www.math.ucdavis.edu/~saito/data/roc/ferri-class-perf-metrics.pdf.
 }
+\examples{
+n = 20
+set.seed(122)
+truth = as.factor(sample(c(1,2,3), n, replace = TRUE))
+probabilities = matrix(runif(60), 20, 3)
+probabilities = probabilities/rowSums(probabilities)
+colnames(probabilities) = c(1,2,3)
+multiclass.AU1U(probabilities, truth)
+}

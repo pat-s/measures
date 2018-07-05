@@ -20,3 +20,13 @@ The Brier score is defined as the quadratic difference between the probability a
 That means we use the numeric representation 1 and 0 for our target classes. It is similiar to the mean squared error in regression.
 multiclass.brier is the sum over all one vs. all comparisons and for a binary classifcation 2 * brier.
 }
+\examples{
+n = 20
+set.seed(125)
+truth = as.factor(sample(c(1,0), n, replace = TRUE))
+probabilities = runif(n)
+response = as.factor(as.numeric(probabilities > 0.5))
+positive = 1
+negative = 0
+Brier(probabilities, truth, negative, positive)
+}

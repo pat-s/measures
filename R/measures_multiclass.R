@@ -8,6 +8,12 @@
 #' 
 #' @param truth vector of true values 
 #' @param response vector of predicted values
+#' @examples
+#' n = 20
+#' set.seed(122)
+#' truth = as.factor(sample(c(1,2,3), n, replace = TRUE))
+#' response = as.factor(sample(c(1,2,3), n, replace = TRUE))
+#' MMCE(truth, response)
 #' @export
 MMCE = function(truth, response) {
   mean(response != truth)
@@ -19,6 +25,12 @@ MMCE = function(truth, response) {
 #' 
 #' @param truth vector of true values 
 #' @param response vector of predicted values
+#' @examples
+#' n = 20
+#' set.seed(122)
+#' truth = as.factor(sample(c(1,2,3), n, replace = TRUE))
+#' response = as.factor(sample(c(1,2,3), n, replace = TRUE))
+#' ACC(truth, response)
 #' @export 
 ACC = function(truth, response) {
   mean(response == truth)
@@ -30,6 +42,12 @@ ACC = function(truth, response) {
 #' 
 #' @param truth vector of true values 
 #' @param response vector of predicted values
+#' @examples
+#' n = 20
+#' set.seed(122)
+#' truth = as.factor(sample(c(1,2,3), n, replace = TRUE))
+#' response = as.factor(sample(c(1,2,3), n, replace = TRUE))
+#' BER(truth, response)
 #' @export
 BER = function(truth, response) {
   # special case for predictions from FailureModel
@@ -47,6 +65,14 @@ BER = function(truth, response) {
 #' 
 #' @param probabilities [numeric] matrix of predicted probabilities with columnnames of the classes
 #' @param truth vector of true values
+#' @examples
+#' n = 20
+#' set.seed(122)
+#' truth = as.factor(sample(c(1,2,3), n, replace = TRUE))
+#' probabilities = matrix(runif(60), 20, 3)
+#' probabilities = probabilities/rowSums(probabilities)
+#' colnames(probabilities) = c(1,2,3)
+#' multiclass.AUNU(probabilities, truth)
 #' @export
 multiclass.AUNU = function(probabilities, truth) {
   if (length(unique(truth)) != nlevels(truth)){
@@ -64,6 +90,14 @@ multiclass.AUNU = function(probabilities, truth) {
 #' 
 #' @param probabilities [numeric] matrix of predicted probabilities with columnnames of the classes
 #' @param truth vector of true values 
+#' @examples
+#' n = 20
+#' set.seed(122)
+#' truth = as.factor(sample(c(1,2,3), n, replace = TRUE))
+#' probabilities = matrix(runif(60), 20, 3)
+#' probabilities = probabilities/rowSums(probabilities)
+#' colnames(probabilities) = c(1,2,3)
+#' multiclass.AUNP(probabilities, truth)
 #' @export
 multiclass.AUNP = function(probabilities, truth) {
   if (length(unique(truth)) != nlevels(truth)){
@@ -81,6 +115,14 @@ multiclass.AUNP = function(probabilities, truth) {
 #' 
 #' @param probabilities [numeric] matrix of predicted probabilities with columnnames of the classes
 #' @param truth vector of true values 
+#' @examples
+#' n = 20
+#' set.seed(122)
+#' truth = as.factor(sample(c(1,2,3), n, replace = TRUE))
+#' probabilities = matrix(runif(60), 20, 3)
+#' probabilities = probabilities/rowSums(probabilities)
+#' colnames(probabilities) = c(1,2,3)
+#' multiclass.AU1U(probabilities, truth)
 #' @export
 multiclass.AU1U = function(probabilities, truth) {
   m = colAUC(probabilities, truth)
@@ -95,6 +137,14 @@ multiclass.AU1U = function(probabilities, truth) {
 #' 
 #' @param probabilities [numeric] matrix of predicted probabilities with columnnames of the classes
 #' @param truth vector of true values 
+#' @examples
+#' n = 20
+#' set.seed(122)
+#' truth = as.factor(sample(c(1,2,3), n, replace = TRUE))
+#' probabilities = matrix(runif(60), 20, 3)
+#' probabilities = probabilities/rowSums(probabilities)
+#' colnames(probabilities) = c(1,2,3)
+#' multiclass.AU1P(probabilities, truth)
 #' @export 
 multiclass.AU1P = function(probabilities, truth) {
   m = colAUC(probabilities, truth)
@@ -112,6 +162,14 @@ multiclass.AU1P = function(probabilities, truth) {
 #' 
 #' @param probabilities [numeric] matrix of predicted probabilities with columnnames of the classes
 #' @param truth vector of true values
+#' @examples
+#' n = 20
+#' set.seed(122)
+#' truth = as.factor(sample(c(1,2,3), n, replace = TRUE))
+#' probabilities = matrix(runif(60), 20, 3)
+#' probabilities = probabilities/rowSums(probabilities)
+#' colnames(probabilities) = c(1,2,3)
+#' multiclass.Brier(probabilities, truth)
 #' @export 
 multiclass.Brier = function(probabilities, truth) {
   truth = factor(truth, levels = colnames(probabilities))
@@ -126,6 +184,14 @@ multiclass.Brier = function(probabilities, truth) {
 #' 
 #' @param probabilities [numeric] vector (or matrix with column names of the classes) of predicted probabilities
 #' @param truth vector of true values
+#' @examples
+#' n = 20
+#' set.seed(122)
+#' truth = as.factor(sample(c(1,2,3), n, replace = TRUE))
+#' probabilities = matrix(runif(60), 20, 3)
+#' probabilities = probabilities/rowSums(probabilities)
+#' colnames(probabilities) = c(1,2,3)
+#' Logloss(probabilities, truth)
 #' @export
 Logloss = function(probabilities, truth){
   eps = 1e-15
@@ -146,6 +212,14 @@ Logloss = function(probabilities, truth){
 #' 
 #' @param probabilities [numeric] vector (or matrix with column names of the classes) of predicted probabilities 
 #' @param truth vector of true values
+#' @examples
+#' n = 20
+#' set.seed(122)
+#' truth = as.factor(sample(c(1,2,3), n, replace = TRUE))
+#' probabilities = matrix(runif(60), 20, 3)
+#' probabilities = probabilities/rowSums(probabilities)
+#' colnames(probabilities) = c(1,2,3)
+#' SSR(probabilities, truth)
 #' @export
 SSR = function(probabilities, truth){
   truth = match(as.character(truth), colnames(probabilities))
@@ -162,6 +236,13 @@ SSR = function(probabilities, truth){
 #' 
 #' @param probabilities [numeric] vector (or matrix with column names of the classes) of predicted probabilities
 #' @param truth vector of true values 
+#' n = 20
+#' set.seed(122)
+#' truth = as.factor(sample(c(1,2,3), n, replace = TRUE))
+#' probabilities = matrix(runif(60), 20, 3)
+#' probabilities = probabilities/rowSums(probabilities)
+#' colnames(probabilities) = c(1,2,3)
+#' QSR(probabilities, truth)
 #' @export
 QSR = function(probabilities, truth){
   #We add this line because binary tasks only output one probability column
@@ -178,6 +259,13 @@ QSR = function(probabilities, truth){
 #' 
 #' @param probabilities [numeric] vector (or matrix with column names of the classes) of predicted probabilities 
 #' @param truth vector of true values 
+#' n = 20
+#' set.seed(122)
+#' truth = as.factor(sample(c(1,2,3), n, replace = TRUE))
+#' probabilities = matrix(runif(60), 20, 3)
+#' probabilities = probabilities/rowSums(probabilities)
+#' colnames(probabilities) = c(1,2,3)
+#' LSR(probabilities, truth)
 #' @export
 LSR = function(probabilities, truth){
   -1 * Logloss(probabilities, truth)
@@ -190,6 +278,11 @@ LSR = function(probabilities, truth){
 #' 
 #' @param truth vector of true values
 #' @param response vector of predicted values
+#' n = 20
+#' set.seed(122)
+#' truth = as.factor(sample(c(1,2,3), n, replace = TRUE))
+#' response = as.factor(sample(c(1,2,3), n, repla
+#' KAPPA(truth, response)
 #' @export
 KAPPA = function(truth, response) {
   # get confusion matrix
@@ -215,6 +308,11 @@ KAPPA = function(truth, response) {
 #' 
 #' @param truth vector of true values 
 #' @param response vector of predicted values
+#' n = 20
+#' set.seed(122)
+#' truth = as.factor(sample(c(1,2,3), n, replace = TRUE))
+#' response = as.factor(sample(c(1,2,3), n, repla
+#' WKAPPA(truth, response)
 #' @export
 WKAPPA = function(truth, response) {
   # get confusion matrix

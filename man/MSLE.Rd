@@ -16,3 +16,10 @@ Defined as: mean((log(response + 1, exp(1)) - log(truth + 1, exp(1)))^2).
 This is mostly used for count data, note that all predicted and actual target values must be greater or equal '-1'
 to compute the mean squared logarithmic error.
 }
+\examples{
+n = 20
+set.seed(123)
+truth = abs(rnorm(n))
+response = abs(rnorm(n))
+MSLE(truth, response)
+}

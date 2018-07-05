@@ -14,3 +14,10 @@ MSE(truth, response)
 \description{
 Defined as: mean((response - truth)^2)
 }
+\examples{
+n = 20
+set.seed(123)
+truth = rnorm(n)
+response = rnorm(n)
+MSE(truth, response)
+}

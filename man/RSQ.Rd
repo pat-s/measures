@@ -14,3 +14,10 @@ RSQ(truth, response)
 \description{
 Also called R-squared, which is 1 - residual_sum_of_squares / total_sum_of_squares.
 }
+\examples{
+n = 20
+set.seed(123)
+truth = rnorm(n)
+response = rnorm(n)
+RSQ(truth, response)
+}

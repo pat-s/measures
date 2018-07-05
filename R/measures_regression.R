@@ -8,6 +8,12 @@
 #' 
 #' @param truth [numeric] vector of true values
 #' @param response [numeric] vector of predicted values
+#' @examples
+#' n = 20
+#' set.seed(123)
+#' truth = rnorm(n)
+#' response = rnorm(n)
+#' SSE(truth, response)
 #' @export 
 SSE = function(truth, response) {
   sum((response - truth)^2)
@@ -19,6 +25,12 @@ SSE = function(truth, response) {
 #' 
 #' @param truth [numeric] vector of true values 
 #' @param response [numeric] vector of predicted values 
+#' @examples
+#' n = 20
+#' set.seed(123)
+#' truth = rnorm(n)
+#' response = rnorm(n)
+#' MSE(truth, response)
 #' @export
 MSE = function(truth, response) {
   mean((response - truth)^2)
@@ -30,6 +42,12 @@ MSE = function(truth, response) {
 #'
 #' @param truth [numeric] vector of true values 
 #' @param response [numeric] vector of predicted values 
+#' @examples
+#' n = 20
+#' set.seed(123)
+#' truth = rnorm(n)
+#' response = rnorm(n)
+#' RMSE(truth, response)
 #' @export
 RMSE = function(truth, response) {
   sqrt(MSE(truth, response))
@@ -41,6 +59,12 @@ RMSE = function(truth, response) {
 #' 
 #' @param truth [numeric] vector of true values 
 #' @param response [numeric] vector of predicted values 
+#' @examples
+#' n = 20
+#' set.seed(123)
+#' truth = rnorm(n)
+#' response = rnorm(n)
+#' MEDSE(truth, response)
 #' @export 
 MEDSE = function(truth, response) {
   median((response - truth)^2)
@@ -52,6 +76,12 @@ MEDSE = function(truth, response) {
 #' 
 #' @param truth [numeric] vector of true values 
 #' @param response [numeric] vector of predicted values 
+#' @examples
+#' n = 20
+#' set.seed(123)
+#' truth = rnorm(n)
+#' response = rnorm(n)
+#' SAE(truth, response)
 #' @export
 SAE = function(truth, response) {
   sum(abs(response - truth))
@@ -63,6 +93,12 @@ SAE = function(truth, response) {
 #' 
 #' @param truth [numeric] vector of true values 
 #' @param response [numeric] vector of predicted values 
+#' @examples
+#' n = 20
+#' set.seed(123)
+#' truth = rnorm(n)
+#' response = rnorm(n)
+#' MAE(truth, response)
 #' @export 
 MAE = function(truth, response) {
   mean(abs(response - truth))
@@ -74,6 +110,12 @@ MAE = function(truth, response) {
 #' 
 #' @param truth [numeric] vector of true values 
 #' @param response [numeric] vector of predicted values 
+#' @examples
+#' n = 20
+#' set.seed(123)
+#' truth = rnorm(n)
+#' response = rnorm(n)
+#' MEDAE(truth, response)
 #' @export 
 MEDAE = function(truth, response) {
   median(abs(response - truth))
@@ -85,6 +127,12 @@ MEDAE = function(truth, response) {
 #' 
 #' @param truth [numeric] vector of true values 
 #' @param response [numeric] vector of predicted values 
+#' @examples
+#' n = 20
+#' set.seed(123)
+#' truth = rnorm(n)
+#' response = rnorm(n)
+#' RSQ(truth, response)
 #' @export 
 RSQ = function(truth, response) {
   rss = SSE(truth, response)
@@ -102,6 +150,12 @@ RSQ = function(truth, response) {
 #' 
 #' @param truth [numeric] vector of true values
 #' @param response [numeric] vector of predicted values 
+#' @examples
+#' n = 20
+#' set.seed(123)
+#' truth = rnorm(n)
+#' response = rnorm(n)
+#' EXPVAR(truth, response)
 #' @export 
 EXPVAR = function(truth, response) {
   regss = sum((response - mean(truth))^2L)
@@ -121,6 +175,13 @@ EXPVAR = function(truth, response) {
 #' @param response [numeric] vector of predicted values 
 #' @param n [numeric] number of observations 
 #' @param p [numeric] number of predictors
+#' @examples
+#' n = 20
+#' p = 5
+#' set.seed(123)
+#' truth = rnorm(n)
+#' response = rnorm(n)
+#' ARSQ(truth, response, n, p)
 #' @export 
 ARSQ = function(truth, response, n, p) {
   n = length(truth)
@@ -137,6 +198,12 @@ ARSQ = function(truth, response, n, p) {
 #' 
 #' @param truth [numeric] vector of true values 
 #' @param response [numeric] vector of predicted values
+#' @examples
+#' n = 20
+#' set.seed(123)
+#' truth = rnorm(n)
+#' response = rnorm(n)
+#' RRSE(truth, response)
 #' @export 
 RRSE = function(truth, response){
   tss = sum((truth - mean(truth))^2L)
@@ -153,6 +220,12 @@ RRSE = function(truth, response){
 #' 
 #' @param truth [numeric] vector of true values 
 #' @param response [numeric] vector of predicted values
+#' @examples
+#' n = 20
+#' set.seed(123)
+#' truth = rnorm(n)
+#' response = rnorm(n)
+#' RAE(truth, response)
 #' @export 
 RAE = function(truth, response){
   meanad = sum(abs(truth - mean(truth)))
@@ -169,6 +242,12 @@ RAE = function(truth, response){
 #' 
 #' @param truth [numeric] vector of true values 
 #' @param response [numeric] vector of predicted values
+#' @examples
+#' n = 20
+#' set.seed(123)
+#' truth = rnorm(n)
+#' response = rnorm(n)
+#' MAPE(truth, response)
 #' @export
 MAPE = function(truth, response){
   if (any(truth == 0)){
@@ -186,6 +265,12 @@ MAPE = function(truth, response){
 #' 
 #' @param truth [numeric] vector of true values 
 #' @param response [numeric] vector of predicted values
+#' @examples
+#' n = 20
+#' set.seed(123)
+#' truth = abs(rnorm(n))
+#' response = abs(rnorm(n))
+#' MSLE(truth, response)
 #' @export 
 MSLE = function(truth, response) {
   if (any(truth < -1))
@@ -204,6 +289,12 @@ MSLE = function(truth, response) {
 #' 
 #' @param truth [numeric] vector of true values 
 #' @param response [numeric] vector of predicted values
+#' @examples
+#' n = 20
+#' set.seed(123)
+#' truth = abs(rnorm(n))
+#' response = abs(rnorm(n))
+#' RMSLE(truth, response)
 #' @export 
 RMSLE = function(truth, response) {
   sqrt(MSLE(truth, response))
@@ -218,6 +309,12 @@ RMSLE = function(truth, response) {
 #' @param response [numeric] vector of predicted values
 #' @importFrom stats as.formula cor median model.matrix
 #' @importFrom utils combn tail
+#' @examples
+#' n = 20
+#' set.seed(123)
+#' truth = rnorm(n)
+#' response = rnorm(n)
+#' KendallTau(truth, response)
 #' @export 
 KendallTau = function(truth, response) {
   cor(truth, response, use = "na.or.complete", method = "kendall")
@@ -230,6 +327,12 @@ KendallTau = function(truth, response) {
 #' 
 #' @param truth [numeric] vector of true values 
 #' @param response [numeric] vector of predicted values
+#' @examples
+#' n = 20
+#' set.seed(123)
+#' truth = rnorm(n)
+#' response = rnorm(n)
+#' SpearmanRho(truth, response)
 #' @export 
 SpearmanRho = function(truth, response) {
   cor(truth, response, use = "na.or.complete", method = "spearman")

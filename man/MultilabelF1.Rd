@@ -9,7 +9,12 @@ MultilabelF1(truth, response)
 \arguments{
 \item{truth}{matrix of true values}
 
-\item{response}{matrix of predicted values}
+\item{response}{matrix of predicted values
+n = 20
+set.seed(122)
+truth = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+response = matrix(sample(c(0,1), 60, replace = TRUE), 20, 3)
+MultilabelF1(truth, response)}
 }
 \description{
 Harmonic mean of precision and recall on a per instance basis (Micro-F1), following the

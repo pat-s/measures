@@ -14,3 +14,10 @@ SAE(truth, response)
 \description{
 Defined as: sum(abs(response - truth))"
 }
+\examples{
+n = 20
+set.seed(123)
+truth = rnorm(n)
+response = rnorm(n)
+SAE(truth, response)
+}

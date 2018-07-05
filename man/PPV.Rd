@@ -19,3 +19,12 @@ PPV(truth, response, positive, probabilities = NULL)
 Defined as: tp / (tp + fp). Also called precision. If the denominator is 0, PPV is set to be either 1 or 0 
 depending on whether the highest probability prediction is positive (1) or negative (0).
 }
+\examples{
+n = 20
+set.seed(125)
+truth = as.factor(sample(c(1,0), n, replace = TRUE))
+probabilities = runif(n)
+response = as.factor(as.numeric(probabilities > 0.5))
+positive = 1
+PPV(truth, response, positive, probabilities = NULL)
+}

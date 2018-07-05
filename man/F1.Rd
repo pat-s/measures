@@ -16,3 +16,12 @@ F1(truth, response, positive)
 \description{
 Defined as: 2 * tp/ (sum(truth == positive) + sum(response == positive))
 }
+\examples{
+n = 20
+set.seed(125)
+truth = as.factor(sample(c(1,0), n, replace = TRUE))
+probabilities = runif(n)
+response = as.factor(as.numeric(probabilities > 0.5))
+positive = 1
+F1(truth, response, positive)
+}

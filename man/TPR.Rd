@@ -16,3 +16,12 @@ TPR(truth, response, positive)
 \description{
 Percentage of correctly classified observations in the positive class. Also called hit rate or recall or sensitivity.
 }
+\examples{
+n = 20
+set.seed(125)
+truth = as.factor(sample(c(1,0), n, replace = TRUE))
+probabilities = runif(n)
+response = as.factor(as.numeric(probabilities > 0.5))
+positive = 1
+TPR(truth, response, positive)
+}

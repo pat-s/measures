@@ -14,3 +14,10 @@ MEDAE(truth, response)
 \description{
 Defined as: median(abs(response - truth)).
 }
+\examples{
+n = 20
+set.seed(123)
+truth = rnorm(n)
+response = rnorm(n)
+MEDAE(truth, response)
+}

@@ -14,3 +14,10 @@ MAPE(truth, response)
 \description{
 Defined as the abs(truth_i - response_i) / truth_i. Won't work if any truth value is equal to zero. In this case the output will be NA.
 }
+\examples{
+n = 20
+set.seed(123)
+truth = rnorm(n)
+response = rnorm(n)
+MAPE(truth, response)
+}
