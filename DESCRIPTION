@@ -1,6 +1,6 @@
 Package: measures
 Title: Performance Measures for Statistical Learning
-Version: 0.1
+Version: 0.2
 Authors@R: person("Philipp", "Probst", email = "philipp_probst@gmx.de", role = c("aut", "cre"))
 Description: Provides the biggest amount of statistical measures in the whole R world. Includes measures of regression, (multiclass) classification and multilabel classification. The measures come mainly from the 'mlr' package and were programed by several 'mlr' developers. 
 Depends: R (>= 3.0),
