@@ -19,15 +19,18 @@ listAllMeasures = function() {
 # library(tools)
 # db <- Rd_db("measures")
 # descr = cbind(unlist(unname(lapply(db, tools:::.Rd_get_metadata, "title"))), unlist(unname(lapply(db, tools:::.Rd_get_metadata, "name"))))
-# colnames(descr) = c("description", "function_name")
+# funs = unlist(unname(lapply(db, tools:::.Rd_get_metadata, "usage")))[-seq(1, length(db)*2, 2)]
+# probs = grepl("probabilities", funs)
+# descr = data.frame(descr, probs)
+# colnames(descr) = c("description", "function_name", "probabilities")
 # 
-# measureList = data.frame(c(reg, bin, class, multil), 
+# tab = data.frame(c(reg, bin, class, multil),
 #   c(rep("regression", length(reg)), rep("binary classification", length(bin)), rep("multiclass classification", length(class)), rep("multilabel", length(multil))))
-# colnames(measureList) = c("function_name", "task")
+# colnames(tab) = c("function_name", "task")
 # measureList = merge(tab, descr, by = "function_name", all.x = TRUE, sort = FALSE)
-# measureList = measureList[, c(1, 3, 2)]
+# measureList = measureList[, c(1, 3, 2, 4)]
 # colnames(measureList)[3] = "description"
-# devtools::use_data(measureList, internal = TRUE)
-#
+# devtools::use_data(measureList, internal = TRUE, overwrite = TRUE)
+# 
 # library(knitr)
 # kable(listAllMeasures())
