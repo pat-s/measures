@@ -29,8 +29,14 @@ listAllMeasures = function() {
 # colnames(tab) = c("function_name", "task")
 # measureList = merge(tab, descr, by = "function_name", all.x = TRUE, sort = FALSE)
 # measureList = measureList[, c(1, 3, 2, 4)]
-# colnames(measureList)[3] = "description"
-# devtools::use_data(measureList, internal = TRUE, overwrite = TRUE)
 # 
+# measureList$minimize = TRUE
+# measureList$minimize[measureList$function_name %in% c("RSQ", "EXPVAR", "ARSQ", "KendallTau", "SpearmanRho", 
+#   "AUC", "BAC", "TP", "TN", "TPR", "TNR", "PPV", "MCC", "F1", "GMEAN", "GPR", 
+#   "ACC", "multiclass.AUNU", "multiclass.AUNP", "multiclass.AU1U", "multiclass.AU1P", "SSR", "QSR", "LSR", "KAPPA", "WKAPPA",
+#   "MultilabelF1", "MultilabelACC", "MultilabelPPV", "MultilabelTPR")] = FALSE
+# 
+# devtools::use_data(measureList, internal = TRUE, overwrite = TRUE)
+
 # library(knitr)
 # kable(listAllMeasures())
